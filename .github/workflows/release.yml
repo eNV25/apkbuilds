@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ivanvc/abuild-releaser-action@v1.1.0
+        with:
+          author: John Doe <john@example.com>
+          rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
+          rsa_private_key: ${{ secrets.RSA_PRIVATE_KEY }}
