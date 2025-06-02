@@ -5,7 +5,7 @@ _flavor=zen
 pkgname=linux-$_flavor
 # NOTE: this kernel is intended for testing
 # please resist urge to upgrade it blindly
-pkgver=6.14.9.zen1
+pkgver=6.14.9.1
 _kernver=${pkgver%.*}
 pkgrel=0
 pkgdesc="Linux ZEN"
@@ -32,7 +32,7 @@ _config=${config:-config-edge.$CARCH}
 subpackages="$pkgname-dev:_dev:$CBUILD_ARCH $pkgname-doc:_doc"
 source="https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/linux-$_kernver.tar.xz"
 
-_srctag=v${pkgver%.*}-${pkgver##*.}
+_srctag=v${pkgver%.*}-zen${pkgver##*.}
 source="
 	$url/releases/download/$_srctag/linux-$_srctag.patch.zst
 	$source"
