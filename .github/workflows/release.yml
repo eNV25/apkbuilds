@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ivanvc/abuild-releaser-action@v1.1.0
         with:
-          author: John Doe <john@example.com>
+          author: eNV25 <env252525@gmail.com>
           rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
           rsa_private_key: ${{ secrets.RSA_PRIVATE_KEY }}
+          alpine_branch: latest-stable
