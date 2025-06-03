@@ -119,9 +119,10 @@ _package() {
 		*) _install=install;;
 	esac
 
-	make -j1 modules_install $_install \
+	ZSTD_CLEVEL=19 make modules_install $_install \
 		ARCH="$_carch" \
 		INSTALL_MOD_PATH="$_outdir" \
+		INSTALL_MOD_STRIP=1 \
 		INSTALL_PATH="$_outdir"/boot \
 		INSTALL_DTBS_PATH="$_outdir/boot/dtbs-$_buildflavor"
 
