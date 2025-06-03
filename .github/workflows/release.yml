@@ -11,6 +11,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    container: alpinelinux/build-base:latest
     steps:
       - run: df -h
       - uses: jlumbroso/free-disk-space@main
@@ -24,14 +25,10 @@ jobs:
       - uses: actions/checkout@4
         with:
           path: apkbuilds
-      - uses: docker://alpinelinux/build-base:latest
-        env:
+      - env:
           RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
           RSA_PUBLIC_KEY: ${{ secrets.RSA_PUBLIC_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-        with:
-          entrypoint: /github/workspace/apkbuilds/build.sh
+        run: /github/workspace/apkbuilds/build.sh
       - uses: ncipollo/release-action
         with:
           allowUpdates: true
