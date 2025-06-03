@@ -15,7 +15,7 @@ jobs:
       - uses: jlumbroso/free-disk-space@main
       - uses: insightsengineering/disk-space-reclaimer@main
       - uses: actions/checkout@v4
-      - uses: ivanvc/abuild-releaser-action@v1.1.0
+      - uses: ivanvc/abuild-releaser-action@v1.2.0
         with:
           author: eNV25 <env252525@gmail.com>
           rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
