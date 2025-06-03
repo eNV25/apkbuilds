@@ -21,7 +21,7 @@ jobs:
         with:
           docker-images: false
       - run: df -h
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@4
         with:
           path: apkbuilds
       - uses: docker://alpinelinux/build-base:edge
