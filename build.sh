@@ -2,7 +2,7 @@
 
 doas sed -i 's/edge/v3.21/g' /etc/apk/repositories
 doas apk upgrade -U --available
-doas chown "$(id -u)" "$GITHUB_WORKSPACE"
+doas chown -R "$(id -u)" "$GITHUB_WORKSPACE"
 
 [ -n "$RSA_PRIVATE_KEY" ] || {
   echo "RSA_PRIVATE_KEY is empty"
