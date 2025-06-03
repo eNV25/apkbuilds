@@ -20,4 +20,4 @@ jobs:
           author: eNV25 <env252525@gmail.com>
           rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
           rsa_private_key: ${{ secrets.RSA_PRIVATE_KEY }}
-          alpine_branch: latest-stable
+          alpine_branch: v3.21
