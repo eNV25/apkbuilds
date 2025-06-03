@@ -12,16 +12,33 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - run: df -h
       - uses: jlumbroso/free-disk-space@main
         with:
           docker-images: false
+      - run: df -h
       - uses: insightsengineering/disk-space-reclaimer@main
         with:
           docker-images: false
-      - uses: actions/checkout@v4
-      - uses: ivanvc/abuild-releaser-action@v1.2.0
+      - run: df -h
+      - uses: actions/checkout@latest
         with:
-          author: eNV25 <env252525@gmail.com>
-          rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
-          rsa_private_key: ${{ secrets.RSA_PRIVATE_KEY }}
-          alpine_branch: latest-stable
+          path: apkbuilds
+      - uses: docker://alpinelinux/build-base:edge
+        env:
+          RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
+          RSA_PUBLIC_KEY: ${{ secrets.RSA_PUBLIC_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+        with:
+          entrypoint: /github/workspace/apkbuilds/build.sh
+      - uses: ncipollo/release-action
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: repo/x86_64/*
+          commit: f49fd0f5d8e228e300eda27f4aff45a0b1f9b861
+          makeLatest: true
+          removeArtifacts: true
+          replacesArtifacts: true
+          tag: x86_64
