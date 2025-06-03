@@ -1,7 +1,7 @@
 # Contributor: Milan P. Stanić <mps@arvanta.net>
 # Maintainer: eNV25 <env252525@gmail.com>
 
-_flavor=zen
+_flavor=zen-custom
 pkgname=linux-$_flavor
 # NOTE: this kernel is intended for testing
 # please resist urge to upgrade it blindly
@@ -259,5 +259,5 @@ _doc() {
 sha512sums="
 acd11f0c1e966182f3beefb7fd5b3c897c9957e10d2fa5c31c98982827afa2ba8e799a418d8a07e5ec2f16f0dcb2647a307e8ffc513ec215a8010af37e02e8c8  linux-v6.14.9-zen1.patch.zst
 2cfec217ca4fd181f9e69bf302f7f2807667536511f5085feba00b51a3a1f4bbc0bb96acada2eb1bfd0a8b584dfa9b57f12aed07a416a1085eedf8866a03f9c6  linux-6.14.9.tar.xz
-aa3da9f6b6bd205986e9b2277e34365251aa3b3cbc5ca6a214bc15f2c66ce69658bbae575edd69785ef848299ee098718ac2cb5a6262c6851d2c7f72255ff64b  config-edge.x86_64
+d48aec48fc40addb03a3777a2bd6663354a74f3eb7934eccf3e76d9c2361695825e0d1db41eaf0bbf785a6d8ad4bea4735c69d10374286da9fd652e76ed09de4  config-edge.x86_64
 "
