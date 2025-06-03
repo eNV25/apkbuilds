@@ -22,7 +22,7 @@ jobs:
         with:
           docker-images: false
       - run: df -h
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@4
         with:
           path: apkbuilds
       - env:
@@ -66,7 +66,7 @@ jobs:
 
           ls -la "$WORKSPACE/repo/x86_64/"
 
-      - uses: ncipollo/release-action@latest
+      - uses: ncipollo/release-action@v1.16.0
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
