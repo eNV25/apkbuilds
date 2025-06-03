@@ -1,7 +1,7 @@
 #!/bin/sh -ex
 
-sed -i 's/edge/v3.21/g' /etc/apk/repositories
-apk upgrade -U --available
+sudo sed -i 's/edge/v3.21/g' /etc/apk/repositories
+sudo apk upgrade -U --available
 
 [ -n "$RSA_PRIVATE_KEY" ] || {
   echo "RSA_PRIVATE_KEY is empty"
