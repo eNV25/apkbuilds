@@ -5,7 +5,7 @@ _flavor=zen
 pkgname=linux-$_flavor
 # NOTE: this kernel is intended for testing
 # please resist urge to upgrade it blindly
-pkgver=6.14.9.1
+pkgver=6.14.10.1
 _kernver=${pkgver%.*}
 pkgrel=0
 pkgdesc="Linux ZEN"
@@ -262,7 +262,7 @@ _doc() {
 
 
 sha512sums="
-acd11f0c1e966182f3beefb7fd5b3c897c9957e10d2fa5c31c98982827afa2ba8e799a418d8a07e5ec2f16f0dcb2647a307e8ffc513ec215a8010af37e02e8c8  linux-v6.14.9-zen1.patch.zst
-2cfec217ca4fd181f9e69bf302f7f2807667536511f5085feba00b51a3a1f4bbc0bb96acada2eb1bfd0a8b584dfa9b57f12aed07a416a1085eedf8866a03f9c6  linux-6.14.9.tar.xz
-5f3f2698d15eae431d58e8643590cc4cc8d014ac02e143c00c0a8ed1a85f0fa0a30e31053de99227b5c179e82ef3b4dd350ef22305f14bacb21cbe54947ad55f  config-zen.x86_64
+836c5eb65b7a495a3135e77e6259e3a17ee27e4ca96e636319de1573e5b8b71ee461fefd691afecc10fc6e88d7b20095ef0d8df0408653f02e55ed2f0a30627a  linux-v6.14.10-zen1.patch.zst
+f397fbaeb51fad2efc509f831342be64bb4fab2f46d1c905a127be6751582c311e10cfe58b0803e2bd22c64730db1c89bc09ed6986dd51cced2c3bad14dccb5a  linux-6.14.10.tar.xz
+0b2452d36e92605ac9a47c2e15d482a663edbbb6bcdb65113d9f3c5448b114d8ecdf432a3645c282f4fef6870d548f74f16252e501fb6d10ffbfd7bf59ed9999  config-zen.x86_64
 "
