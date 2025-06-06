@@ -26,7 +26,7 @@ jobs:
           path: apkbuilds
       - run: |
           mkdir -p repo/x86_64
-          gh release download x86_64 -p APKINDEX.tar.gz -p '*.apk' -D repo/x86_64 --clobber
+          gh release download x86_64 -R "$GITHUB_REPOSITORY" -D repo/x86_64 --clobber -p APKINDEX.tar.gz -p '*.apk'
         env:
           GH_TOKEN: ${{ github.token }}
       - uses: docker://alpinelinux/build-base:latest
