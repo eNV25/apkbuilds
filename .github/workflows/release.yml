@@ -27,6 +27,8 @@ jobs:
       - run: |
           mkdir -p repo/x86_64
           gh release download x86_64 -p APKINDEX.tar.gz -p '*.apk' -D repo/x86_64 --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
       - uses: docker://alpinelinux/build-base:latest
         env:
           RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
