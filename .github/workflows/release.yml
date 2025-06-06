@@ -24,6 +24,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: apkbuilds
+      - run: |
+          mkdir -p repo/x86_64
+          gh release download x86_64 -p APKINDEX.tar.gz -p '*.apk' -D repo/x86_64 --clobber
       - uses: docker://alpinelinux/build-base:latest
         env:
           RSA_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
