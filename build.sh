@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+doas chown -v -R "$(id -u)" "$GITHUB_WORKSPACE"
 echo "$RSA_PRIVATE_KEY" >"$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa"
 echo "$RSA_PUBLIC_KEY" >"$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa.pub"
 
@@ -7,10 +8,9 @@ set -x
 
 doas sed -i 's/edge/v3.21/g' /etc/apk/repositories
 doas apk upgrade -U --available
-doas chown -R "$(id -u)" "$GITHUB_WORKSPACE"
 
-chmod 600 "$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa"
-doas cp "$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa.pub" /etc/apk/keys/
+chmod -v 600 "$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa"
+doas cp -v "$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa.pub" /etc/apk/keys/
 
 export REPODEST="$GITHUB_WORKSPACE"
 export PACKAGER="eNV25 <env252525@gmail.com>"
