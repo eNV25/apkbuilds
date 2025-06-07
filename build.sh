@@ -6,7 +6,10 @@ echo "$RSA_PUBLIC_KEY" >"$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa.pub"
 
 set -x
 
-doas sed -i 's/edge/v3.21/g' /etc/apk/repositories
+cat <<-'EOF' | doas tee /etc/apk/repositories
+https://dl-cdn.alpinelinux.org/alpine/v3.21/main
+https://dl-cdn.alpinelinux.org/alpine/v3.21/community
+EOF
 doas apk upgrade -U --available
 doas apk add github-cli
 
