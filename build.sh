@@ -31,10 +31,8 @@ gh release download x86_64 -R "$GITHUB_REPOSITORY" -D "$REPODEST"/repo/x86_64/ -
 
 for pkg in "$GITHUB_WORKSPACE"/apkbuilds/repo/*; do
   if [ -f "$pkg"/APKBUILD ]; then
-    abuild -C "$pkg" -r all clean
+    abuild -C "$pkg" -r all clean cleanoldpkg
   fi
 done
-
-abuild cleanoldpkg
 
 ls -la "$GITHUB_WORKSPACE/repo/x86_64/"
