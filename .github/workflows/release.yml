@@ -17,10 +17,6 @@ jobs:
         with:
           docker-images: false
       - run: df -h
-      - uses: insightsengineering/disk-space-reclaimer@main
-        with:
-          docker-images: false
-      - run: df -h
       - uses: actions/checkout@v4
         with:
           path: apkbuilds
