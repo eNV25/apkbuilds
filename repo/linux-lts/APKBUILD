@@ -41,7 +41,7 @@ if [ "${pkgver%.0}" = "$pkgver" ]; then
 	# Prepend to apply first
 	source="patch-$pkgver.patch.xz::https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/patch-$pkgver.xz $source"
 fi
-arch="all !armhf"
+arch="x86_64"
 license="GPL-2.0-only"
 
 # secfixes:
@@ -345,5 +345,5 @@ b296717ef0cd63978142b4d47b3bc49faa04daf77e115e702ba611cc254a6e782cdab7d5639e724c
 7e066473fd0e234a279280eee0351bf9c3efab1e7ad0e1a85cb62193e63df06a7641015229445aaab6f68019c4852e6731b2cb3c4a54c0dbe405fac12b365873  0003-kexec-add-kexec_load_disabled-boot-option.patch
 28c83be4c97152001381cd5e3a8acb8552a42d9dac9aaec8f096e3762b7944035aa5a4363fb4602f9bb427c4f72cfd2f996a0a725f7f9e07ab250317985aff9e  0004-objtool-respect-AWK-setting.patch
 5ce79416f8f111c36393718656e3eeb4cb0adccd117dcf661876d1564010e5c58b6351cc4116d187d0a9a838bcca0fecc236d81ac71afb940b89ccb14f21e179  0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
-96d7b26a174cfc8421e5fa6bcb4c6b700e9a035a0e3bd1542c1a5c5b21907a314da8d10775683fe92d4f499ac295334fa3a487312eda903be1e35cb2ccaafbe5  lts.x86_64.config
+7913cdd0cd4940b4b3400e2d37b4f3040b70eb82dc3c02cc0964dd55d9ec113e661ddef3b52ca0ed34d9b0c2dd375518cc66f41fa72a7d29e79a15fa3b09c649  lts.x86_64.config
 "
