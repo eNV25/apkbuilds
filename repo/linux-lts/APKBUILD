@@ -1,4 +1,5 @@
-# Maintainer: Natanael Copa <ncopa@alpinelinux.org>
+# Contributor: Natanael Copa <ncopa@alpinelinux.org>
+# Maintainer: eNV25 <env252525@gmail.com>
 
 _flavor=lts
 pkgname=linux-$_flavor
@@ -89,7 +90,7 @@ _prepareconfig() {
 
 	cp "$srcdir"/$_config "$_builddir"/.config
 	msg "Configuring $_flavor kernel ($_arch)"
-	make V=1 -C "$builddir" \
+	make -C "$builddir" \
 		O="$_builddir" \
 		ARCH="$(_kernelarch $_arch)" \
 		olddefconfig
@@ -150,7 +151,7 @@ updateconfigs() {
 			actions="olddefconfig"
 		fi
 		env | grep ^CONFIG_ >> "$_builddir"/.config || true
-		make V=1 -j1 -C "$builddir" \
+		make -j1 -C "$builddir" \
 			O="$_builddir" \
 			ARCH="$(_kernelarch $_arch)" \
 			$actions savedefconfig
@@ -184,7 +185,7 @@ build() {
 			"$builddir"/certs/default_x509.genkey \
 			> certs/x509.genkey
 
-		make V=1 ARCH="$(_kernelarch $CARCH)" \
+		make ARCH="$(_kernelarch $CARCH)" \
 			CC="${CC:-gcc}" \
 			AWK="${AWK:-mawk}" \
 			KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
@@ -209,7 +210,7 @@ _package() {
 		*) _install=install;;
 	esac
 
-	make V=1 modules_install $_install \
+	make modules_install $_install \
 		ARCH="$(_kernelarch $CARCH)" \
 		INSTALL_MOD_PATH="$_outdir" \
 		INSTALL_MOD_STRIP=1 \
@@ -289,7 +290,7 @@ _dev() {
 
 	install -D -t "$dir"/certs "$_builddir"/certs/signing_key.x509 || :
 
-	make V=1 -C "$builddir" \
+	make -C "$builddir" \
 		O="$dir" \
 		ARCH="$(_kernelarch $CARCH)" \
 		AWK="${AWK:-mawk}" \
@@ -345,5 +346,5 @@ b296717ef0cd63978142b4d47b3bc49faa04daf77e115e702ba611cc254a6e782cdab7d5639e724c
 7e066473fd0e234a279280eee0351bf9c3efab1e7ad0e1a85cb62193e63df06a7641015229445aaab6f68019c4852e6731b2cb3c4a54c0dbe405fac12b365873  0003-kexec-add-kexec_load_disabled-boot-option.patch
 28c83be4c97152001381cd5e3a8acb8552a42d9dac9aaec8f096e3762b7944035aa5a4363fb4602f9bb427c4f72cfd2f996a0a725f7f9e07ab250317985aff9e  0004-objtool-respect-AWK-setting.patch
 5ce79416f8f111c36393718656e3eeb4cb0adccd117dcf661876d1564010e5c58b6351cc4116d187d0a9a838bcca0fecc236d81ac71afb940b89ccb14f21e179  0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
-7913cdd0cd4940b4b3400e2d37b4f3040b70eb82dc3c02cc0964dd55d9ec113e661ddef3b52ca0ed34d9b0c2dd375518cc66f41fa72a7d29e79a15fa3b09c649  lts.x86_64.config
+8687e1877cdb4b0fbbb9e8cb4ad612d5e03ee27ccb835cfc85248e550ab838721bc85947f6d0871d4bc4a5e559eb8e3e2ae070d487a2f5b48b60ea913ea7685d  lts.x86_64.config
 "
