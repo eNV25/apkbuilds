@@ -89,7 +89,7 @@ _prepareconfig() {
 
 	cp "$srcdir"/$_config "$_builddir"/.config
 	msg "Configuring $_flavor kernel ($_arch)"
-	make V=2 -C "$builddir" \
+	make V=1 -C "$builddir" \
 		O="$_builddir" \
 		ARCH="$(_kernelarch $_arch)" \
 		olddefconfig
@@ -150,7 +150,7 @@ updateconfigs() {
 			actions="olddefconfig"
 		fi
 		env | grep ^CONFIG_ >> "$_builddir"/.config || true
-		make V=2 -j1 -C "$builddir" \
+		make V=1 -j1 -C "$builddir" \
 			O="$_builddir" \
 			ARCH="$(_kernelarch $_arch)" \
 			$actions savedefconfig
@@ -184,7 +184,7 @@ build() {
 			"$builddir"/certs/default_x509.genkey \
 			> certs/x509.genkey
 
-		make V=2 ARCH="$(_kernelarch $CARCH)" \
+		make V=1 ARCH="$(_kernelarch $CARCH)" \
 			CC="${CC:-gcc}" \
 			AWK="${AWK:-mawk}" \
 			KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
@@ -209,7 +209,7 @@ _package() {
 		*) _install=install;;
 	esac
 
-	make V=2 modules_install $_install \
+	make V=1 modules_install $_install \
 		ARCH="$(_kernelarch $CARCH)" \
 		INSTALL_MOD_PATH="$_outdir" \
 		INSTALL_MOD_STRIP=1 \
@@ -289,7 +289,7 @@ _dev() {
 
 	install -D -t "$dir"/certs "$_builddir"/certs/signing_key.x509 || :
 
-	make V=2 -C "$builddir" \
+	make V=1 -C "$builddir" \
 		O="$dir" \
 		ARCH="$(_kernelarch $CARCH)" \
 		AWK="${AWK:-mawk}" \
