@@ -72,6 +72,9 @@ riscv64) _carch="riscv" ;;
 loongarch64) _carch="loongarch" ;;
 esac
 
+export LC_ALL=C
+export LANG=C
+
 prepare() {
 	msg "Applying linux-$_srctag.patch.zst"
 	zstd --decompress --stdout < "$srcdir"/linux-$_srctag.patch.zst | patch -p1 -N
