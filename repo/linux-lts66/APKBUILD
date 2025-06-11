@@ -4,7 +4,7 @@ _flavor=lts66
 pkgname=linux-$_flavor
 pkgver=6.6.93
 _kernver=${pkgver%.*}
-pkgrel=0
+pkgrel=1
 pkgdesc="Linux lts kernel"
 url="https://www.kernel.org"
 depends="initramfs-generator"
@@ -343,6 +343,6 @@ sha512sums="
 75f232b6becee7d36d360ffaf2aaa837d13518f9ec620ca159bcb2a0e98eb18a77631406a9b44244ea0164a7ed59fad583823909681e9b894a012f9d13365b69  0003-kexec-add-kexec_load_disabled-boot-option.patch
 2956050bb332411d00a285e9656618f2e34b631492bbc19bef54d83a6e91b8531f4e18830b9313cfe52fbf8a8ca6fb76cf55b3ddd146ca3b977046cf2fd10cad  0004-objtool-respect-AWK-setting.patch
 5ce79416f8f111c36393718656e3eeb4cb0adccd117dcf661876d1564010e5c58b6351cc4116d187d0a9a838bcca0fecc236d81ac71afb940b89ccb14f21e179  0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
-0e2342304019ec81ff79ab4a9e6ebff0ac1bbe28957d4f07c5036f05b839e6d46e806a2761aa2ce5adb87ced54a88811e7d0fc0d9349c513a4e334cc52f654b5  lts66.x86_64.config
+63223b957391c1d8bcc5fdb08082bc79829755ffce9414e1c8d75c6ed715989fad42c88a54038dd67f6d2221e1a5ba42ed09a518476924f9040553ade849b1d0  lts66.x86_64.config
 63393535c0b95a6c94f190441eb27e24e0855765875748a518b7c421907676aa815de591a83de5faa3be6f1c563ed7371ee06cc0a2063a57c76ca9de16d4e675  patch-6.6.93.xz
 "
