@@ -7,8 +7,8 @@ echo "$RSA_PUBLIC_KEY" >"$GITHUB_WORKSPACE/$GITHUB_REPOSITORY_OWNER.rsa.pub"
 set -x
 
 cat <<-'EOF' | doas tee /etc/apk/repositories
-https://dl-cdn.alpinelinux.org/alpine/v3.21/main
-https://dl-cdn.alpinelinux.org/alpine/v3.21/community
+https://dl-cdn.alpinelinux.org/alpine/edge/main
+https://dl-cdn.alpinelinux.org/alpine/edge/community
 EOF
 doas apk upgrade -U --available
 doas apk add github-cli
