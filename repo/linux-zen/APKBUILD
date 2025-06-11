@@ -27,6 +27,7 @@ makedepends="$_depends_dev
 	rust-src
 	rust-bindgen
 	clang-dev
+	rustfmt
 	sed
 	xz
 	zstd"
