@@ -5,7 +5,7 @@ _flavor=zen
 pkgname=linux-$_flavor
 # NOTE: this kernel is intended for testing
 # please resist urge to upgrade it blindly
-pkgver=6.14.10.1
+pkgver=6.15.2.1
 _kernver=${pkgver%.*}
 pkgrel=0
 pkgdesc="Linux ZEN"
@@ -24,8 +24,9 @@ makedepends="$_depends_dev
 	pahole
 	python3
 	rust
-	rust-bindgen
 	rust-src
+	rust-bindgen
+	clang-dev
 	sed
 	xz
 	zstd"
@@ -71,6 +72,9 @@ loongarch64) _carch="loongarch" ;;
 esac
 
 prepare() {
+	msg "Applying linux-$_srctag.patch.zst"
+	zstd --decompress --stdout < "$srcdir"/linux-$_srctag.patch.zst | patch -p1 -N
+
 	default_prepare
 
 	# remove localversion from patch if any
@@ -262,7 +266,7 @@ _doc() {
 
 
 sha512sums="
-836c5eb65b7a495a3135e77e6259e3a17ee27e4ca96e636319de1573e5b8b71ee461fefd691afecc10fc6e88d7b20095ef0d8df0408653f02e55ed2f0a30627a  linux-v6.14.10-zen1.patch.zst
-f397fbaeb51fad2efc509f831342be64bb4fab2f46d1c905a127be6751582c311e10cfe58b0803e2bd22c64730db1c89bc09ed6986dd51cced2c3bad14dccb5a  linux-6.14.10.tar.xz
-0b2452d36e92605ac9a47c2e15d482a663edbbb6bcdb65113d9f3c5448b114d8ecdf432a3645c282f4fef6870d548f74f16252e501fb6d10ffbfd7bf59ed9999  config-zen.x86_64
+10185920145500804886aea954010341942cc8ee7c02ee692032af302b9ede4b9e45f38fa90720980e3fda0d96eeffe22f4044a3f77da8c99b91fb8892a8e54d  linux-v6.15.2-zen1.patch.zst
+5893a0f6971826553008790e7c89ce68bcda5b895fdd8b37297833b3a4604a8aff99fa93469464ded084df37e183f24f5ed39512a37790397d7f70d1031195af  linux-6.15.2.tar.xz
+3a9ab17c9b91eca906f78380d57e01da273ddb69ef615cbe18c4a3519ee2d8fe81451690c8ddaf3a8196f648dc15a8798a8582f4b65548c8f34681401104c524  config-zen.x86_64
 "
