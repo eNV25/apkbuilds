@@ -108,7 +108,7 @@ build() {
 	unset LDFLAGS
 	export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 	for i in $_flavors; do
-		make ARCH="$_carch" DTC_FLAGS="-@" CC="${CC:-gcc}" \
+		make -j1 V=1 ARCH="$_carch" DTC_FLAGS="-@" CC="${CC:-gcc}" \
 			KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
 	done
 }
@@ -131,7 +131,7 @@ _package() {
 		*) _install=install;;
 	esac
 
-	ZSTD_CLEVEL=19 make modules_install $_install \
+	ZSTD_CLEVEL=19 make -j1 V=1 modules_install $_install \
 		ARCH="$_carch" \
 		INSTALL_MOD_PATH="$_outdir" \
 		INSTALL_MOD_STRIP=1 \
