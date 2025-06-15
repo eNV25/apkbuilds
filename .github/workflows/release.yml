@@ -15,7 +15,9 @@ jobs:
       - run: df -h
       - uses: jlumbroso/free-disk-space@main
         with:
+          tool-cache: true
           docker-images: false
+          swap-storage: false
       - run: df -h
       - uses: actions/checkout@v4
         with:
