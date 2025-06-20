@@ -196,7 +196,7 @@ build() {
 			"$builddir"/certs/default_x509.genkey \
 			> certs/x509.genkey
 
-		make ARCH="$(_kernelarch $CARCH)" \
+		make V=1 ARCH="$(_kernelarch $CARCH)" \
 			CC="${CC:-gcc}" \
 			AWK="${AWK:-mawk}" \
 			KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-Alpine"
