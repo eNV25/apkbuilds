@@ -2,7 +2,7 @@
 
 _flavor=lts66
 pkgname=linux-$_flavor
-pkgver=6.6.97
+pkgver=6.6.100
 _kernver=${pkgver%.*}
 pkgrel=1
 pkgdesc="Linux lts kernel"
@@ -18,7 +18,6 @@ source="https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/linux-$_kernver
 	0003-kexec-add-kexec_load_disabled-boot-option.patch
 	0004-objtool-respect-AWK-setting.patch
 	0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
-	0006-kallsyms-fix-build-without-execinfo.patch
 
 	lts66.x86_64.config
 	"
@@ -344,7 +343,6 @@ sha512sums="
 75f232b6becee7d36d360ffaf2aaa837d13518f9ec620ca159bcb2a0e98eb18a77631406a9b44244ea0164a7ed59fad583823909681e9b894a012f9d13365b69  0003-kexec-add-kexec_load_disabled-boot-option.patch
 2956050bb332411d00a285e9656618f2e34b631492bbc19bef54d83a6e91b8531f4e18830b9313cfe52fbf8a8ca6fb76cf55b3ddd146ca3b977046cf2fd10cad  0004-objtool-respect-AWK-setting.patch
 5ce79416f8f111c36393718656e3eeb4cb0adccd117dcf661876d1564010e5c58b6351cc4116d187d0a9a838bcca0fecc236d81ac71afb940b89ccb14f21e179  0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
-a0660bd168f7e5804b995b8ec6ede423f2c8b9fa2d8904c165a4ddd4cadc88723f50c6fa9ffcb44f263f4e6c6fde600601210d77b8d3c2e25230e0b9438ca3c8  0006-kallsyms-fix-build-without-execinfo.patch
 63223b957391c1d8bcc5fdb08082bc79829755ffce9414e1c8d75c6ed715989fad42c88a54038dd67f6d2221e1a5ba42ed09a518476924f9040553ade849b1d0  lts66.x86_64.config
-cfdd3ffa11b598278031a62c39462a1a4ce46dd3edc1e104db101ef37f614875408fa89880eb91ddd4c64e63166aba603f25fe2633d297b170881006f56cea64  patch-6.6.97.xz
+e940e0af543eddaad381c6bbb9327f25850fbc91a0c1e555d8f570ef10558ab9fad25019d1fad68eca5285ca087667f0dbd43766857d0b039078d769d792aa98  patch-6.6.100.xz
 "
