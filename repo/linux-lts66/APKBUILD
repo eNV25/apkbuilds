@@ -2,7 +2,7 @@
 
 _flavor=lts66
 pkgname=linux-$_flavor
-pkgver=6.6.101
+pkgver=6.6.103
 _kernver=${pkgver%.*}
 pkgrel=1
 pkgdesc="Linux lts kernel"
@@ -344,5 +344,5 @@ sha512sums="
 2956050bb332411d00a285e9656618f2e34b631492bbc19bef54d83a6e91b8531f4e18830b9313cfe52fbf8a8ca6fb76cf55b3ddd146ca3b977046cf2fd10cad  0004-objtool-respect-AWK-setting.patch
 5ce79416f8f111c36393718656e3eeb4cb0adccd117dcf661876d1564010e5c58b6351cc4116d187d0a9a838bcca0fecc236d81ac71afb940b89ccb14f21e179  0005-powerpc-config-defang-gcc-check-for-stack-protector-.patch
 63223b957391c1d8bcc5fdb08082bc79829755ffce9414e1c8d75c6ed715989fad42c88a54038dd67f6d2221e1a5ba42ed09a518476924f9040553ade849b1d0  lts66.x86_64.config
-bcb5671c660a84f34556210dd525c6b38f3a9cf6c78bbc6b7d936f8efeb3170b27bfbf4a343b0ac94659cc63a35c479e1e158ca35043d5937eebbaf4fd8cadb6  patch-6.6.101.xz
+305eb896563c19b6d9cd9a4faddd7b39b41a651f64dfee017364cd18c962f6e1c1840e8350532d13007afbe5d89bdfb8a982c328586ce1d2e7e3f199836654aa  patch-6.6.103.xz
 "
